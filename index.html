@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#05070c"><title>Rocket Lander — IBM PC 1982 Homage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="machine" aria-label="Rocket Lander game console">
+    <header><span class="ibm">IBM</span><span>PERSONAL COMPUTER</span><button id="sound" aria-label="Toggle sound">SOUND: ON</button></header>
+    <section class="screen" aria-label="Game display">
+      <canvas id="game" width="960" height="600" aria-label="Rocket Lander playfield. Use arrow keys or on-screen controls."></canvas>
+      <div class="crt" aria-hidden="true"></div>
+      <section id="title" class="overlay">
+        <p class="eyebrow">IBM PC — 1982 HOMAGE</p><h1>ROCKET<br><em>LANDER</em></h1>
+        <p class="tag">A PRECISE DESCENT THROUGH HOSTILE MOUNTAINS</p>
+        <div class="menu"><button id="start" autofocus>START MISSION</button><button id="how">HOW TO PLAY</button></div>
+        <p class="scoreline">HIGH SCORE <b id="high-title">000</b></p>
+      </section>
+      <section id="help" class="overlay hidden" aria-labelledby="help-title">
+        <p class="eyebrow">FLIGHT MANUAL</p><h2 id="help-title">LAND SOFTLY. LAND UPRIGHT.</h2>
+        <div class="helpgrid"><p><b>TURN</b><br><span class="keys">← →</span> or <span class="keys">A D</span></p><p><b>THRUST</b><br><span class="keys">↑</span> / <span class="keys">W</span> / <span class="keys">SPACE</span></p><p><b>PAUSE</b><br><span class="keys">P</span> / <span class="keys">ESC</span></p><p><b>SOUND</b><br><span class="keys">M</span></p></div>
+        <p id="input-note">Use thrust sparingly: fuel is finite.</p>
+        <p class="fine">A landing needs both legs on the pad, &lt; 2.4 HSPD, &lt; 3.4 VSPD and &lt; 12° tilt. At 100 points, ADVANCED MODE engages.</p>
+        <button id="close-help">RETURN</button>
+      </section>
+      <section id="message" class="overlay hidden" aria-live="polite"><p class="eyebrow" id="message-kicker">MISSION PAUSED</p><h2 id="message-title">PAUSED</h2><p id="message-detail">Press P or ESC to resume.</p><button id="message-action">RESUME</button></section>
+    </section>
+    <section class="telemetry" aria-label="Flight telemetry">
+      <div>FUEL <b id="fuel">100</b></div><div>HSPD <b id="hspeed">0.0</b></div><div>VSPD <b id="vspeed">0.0</b></div><div>ANGLE <b id="angle">0°</b></div><div>ALT <b id="altitude">000</b></div><div>SCORE <b id="score">000</b></div><div>MODE <b id="mode">BEGINNER</b></div><div>SEED <b id="seed">-----</b></div>
+    </section>
+    <section class="touch-controls" aria-label="Touch flight controls"><button data-control="left" aria-label="Rotate left">◀</button><button data-control="thrust" class="thrust" aria-label="Main engine">THRUST</button><button data-control="right" aria-label="Rotate right">▶</button></section>
+    <footer>© 2026 INDEPENDENT RECREATION · NO ORIGINAL IBM CODE OR ASSETS</footer>
+  </main><script type="module" src="src/game.js"></script>
+</body></html>
